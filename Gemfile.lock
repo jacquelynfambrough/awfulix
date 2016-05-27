@@ -76,7 +76,14 @@ GEM
     multi_json (1.12.1)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    nokogumbo (1.4.2)
+      nokogiri
     pg (0.18.4)
+    polymer-rails (1.2.4.1)
+      nokogiri (~> 1.6)
+      nokogumbo (= 1.4.2)
+      rails (>= 3.1.0)
+      sprockets (~> 3.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -158,6 +165,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   pg (~> 0.15)
+  polymer-rails
   rails (= 4.2.6)
   rails-erd
   sass-rails (~> 5.0)
