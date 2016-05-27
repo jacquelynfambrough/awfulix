@@ -1,0 +1,23 @@
+<h1> Sign Up </h1>
+
+<div class ="col-md-6 col-md-offset-6">
+<%= form_for :user do |f| %>
+
+<div>
+  <%= f.text_field :username, placeholder: "username", class: "form-control"%><br>
+</div>
+
+<div>
+  <%= f.text_field :email, placeholder: "email", class: "form-control" %><br>
+</div>
+
+<div>
+  <%= f.password_field :password, placeholder: "password", class: "form-control" %><br>
+</div>
+
+<div>
+  <%= f.submit :submit, class: "btn btn-primary" %>
+</div>
+
+<% end %>
+</div>
