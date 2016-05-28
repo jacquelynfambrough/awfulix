@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   #sessions routes
   get '/login', to: 'sessions#new', as: 'login'
-
+  get '/logout', to: 'sessions#destroy', as: 'logout'
   post '/sessions', to: 'sessions#create', as: 'new_session'
 
   #movie routes
