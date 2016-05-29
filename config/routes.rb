@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create', as: 'new_session'
 
   #movie routes
-
+  get '/movies', to: 'movies#index', as: 'movies'
   #review routes
 end
