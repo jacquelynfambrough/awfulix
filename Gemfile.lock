@@ -90,8 +90,6 @@ GEM
       mini_portile2 (~> 2.0.0.rc2)
     nokogumbo (1.4.2)
       nokogiri
-    omdbapi (0.3.0)
-      httparty (~> 0.13)
     pg (0.18.4)
     polymer-rails (1.2.4.1)
       nokogiri (~> 1.6)
@@ -183,7 +181,6 @@ DEPENDENCIES
   httparty (= 0.13.7)
   jbuilder (~> 2.0)
   jquery-rails
-  omdbapi
   pg (~> 0.15)
   polymer-rails
   rails (= 4.2.6)
