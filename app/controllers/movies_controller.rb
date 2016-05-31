@@ -11,6 +11,8 @@ class MoviesController < ApplicationController
       pars.Search.each do |movie|
       @movie = Movie.new
       @movie.title = movie.Title
+      @movie.poster = movie.Poster
+      @movie.year = movie.Year
       @movies << @movie
     end
   else
@@ -20,6 +22,8 @@ class MoviesController < ApplicationController
       pars.Search.each do |movie|
       @movie = Movie.new
       @movie.title = movie.Title
+      @movie.poster = movie.Poster
+      @movie.year = movie.Year
       @movies << @movie
       end
     end
