@@ -10,5 +10,7 @@
 <% @movies.each do |movie| %><br>
 <h3><%= movie.title %></h3><br>
 <%=image_tag movie.poster %><br>
+<%= link_to "Add", new_movie_path, class:'btn btn-primary' %>
 <% end %>
+
 </div>
