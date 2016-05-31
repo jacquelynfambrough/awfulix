@@ -4,7 +4,7 @@ class CreateMovies < ActiveRecord::Migration
       t.string :title
       t.string :year
       t.string :genre
-      t.string :image
+      t.string :poster
       t.string :plot
 
 

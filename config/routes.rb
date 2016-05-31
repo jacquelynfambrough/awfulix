@@ -15,5 +15,6 @@ Rails.application.routes.draw do
 
   #movie routes
   get '/movies', to: 'movies#index', as: 'movies'
+  get '/movies/new', to: 'movies#new', as: 'new_movie'
   #review routes
 end

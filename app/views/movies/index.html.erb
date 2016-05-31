@@ -1,2 +1,14 @@
-<h1> movies index</h1>
-Title, image, year, genre, plot
+<h1> movies index </h1>
+<%= form_tag movies_path, {method: 'get'} do %>
+  <%= text_field_tag :search, params[:search]%>
+  <%= submit_tag "Search", name: nil %>
+<% end %>
+
+<div>
+  <h2> Search Results:</h2>
+
+<% @movies.each do |movie| %><br>
+<%= movie.title %>
+<% end %>
+
+</div>

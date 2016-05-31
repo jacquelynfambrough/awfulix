@@ -24,15 +24,17 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
+          <li><%=link_to "Movies", movies_path %></li>
           <% if current_user %>
-          <li><%=link_to "Profile", user_path(current_user) %></li>
+            <li><%=link_to "Profile", user_path(current_user) %></li>
           <% end %>
         </ul>
         <form class="navbar-form navbar-left" role="search">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search Movies">
+
           </div>
-          <button type="submit" class="glyphicon glyphicon-search btn btn-sm btn-success"></button>
+
+
         </form>
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>

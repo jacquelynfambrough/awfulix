@@ -1,1 +1,9 @@
 Title, image, year, genre, plot
+<% form_tag @movie do  %>
+<% hidden_field_tag :title, movie.title %>
+<% hidden_field_tag :year, movie.year %>
+<% hidden_field_tag :poster, movie.poster %>
+<% submit_tag :submit %>
+
+
+<%end%>

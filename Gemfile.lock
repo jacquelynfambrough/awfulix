@@ -63,7 +63,7 @@ GEM
     execjs (2.7.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
-    httparty (0.13.5)
+    httparty (0.13.7)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     i18n (0.7.0)
@@ -90,6 +90,8 @@ GEM
       mini_portile2 (~> 2.0.0.rc2)
     nokogumbo (1.4.2)
       nokogiri
+    omdbapi (0.3.0)
+      httparty (~> 0.13)
     pg (0.18.4)
     polymer-rails (1.2.4.1)
       nokogiri (~> 1.6)
@@ -178,9 +180,10 @@ DEPENDENCIES
   bootstrap-sass (= 3.2.0.2)
   byebug
   coffee-rails (~> 4.1.0)
-  httparty (= 0.13.5)
+  httparty (= 0.13.7)
   jbuilder (~> 2.0)
   jquery-rails
+  omdbapi
   pg (~> 0.15)
   polymer-rails
   rails (= 4.2.6)
