@@ -7,17 +7,14 @@ class MoviesController < ApplicationController
         response = HTTParty.get('https://www.omdbapi.com/?s=' + params[:search] + '&r=json')
         if response.success?
           search = response["Search"]
-          p "search is:", search
           @movies = []
           search.each do |movie|
-              p "iterating.. ", movie
               mov = Movie.find_or_create_by(imdbid: movie['imdbID']) do |new_movie|
               new_movie.title = movie["Title"]
               if movie["Poster"] != nil
                 new_movie.poster = movie["Poster"]
               end
               new_movie.year = movie["Year"]
-              new_movie.plot = movie["Plot"]
             end
             @movies << mov
           end
@@ -30,6 +27,9 @@ class MoviesController < ApplicationController
   end
   def show
     @movie = Movie.find(params[:id])
+    movie_response = HTTParty.get('https://www.omdbapi.com/?t=' + @movie.title + '&y=&plot=full&r=json')
+    @plot = movie_response["Plot"]
+    @genre = movie_response["Genre"]
     render :show
   end
 end
