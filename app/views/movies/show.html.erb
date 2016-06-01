@@ -12,7 +12,8 @@
 <h2> Reviews: </h2>
 
 <% @reviews.each do |review| %>
-<p><b>User should go here (Remove this label when you get it!):</b><%= review.rating %></p>
+<p><b>User should go here (Remove this label when you get it!):</b></p>
+<p><b>"<%= review.subject %>"</b></p>
 <p><b>Rating here (remove label once it's appearing):</b><%= review.rating %></p>
 <p><b>Review:</b>"<%= review.content %>"</p><br><br>
 <% end %>
