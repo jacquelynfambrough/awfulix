@@ -25,11 +25,14 @@ class MoviesController < ApplicationController
         @movies = Movie.all
       end
   end
+
   def show
     @movie = Movie.find(params[:id])
     movie_response = HTTParty.get('https://www.omdbapi.com/?t=' + @movie.title + '&y=&plot=full&r=json')
     @plot = movie_response["Plot"]
     @genre = movie_response["Genre"]
+    @reviews = @movie.reviews
     render :show
   end
+  
 end
