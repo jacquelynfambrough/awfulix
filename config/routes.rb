@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   #movie routes
   get '/movies', to: 'movies#index', as: 'movies'
   get '/movies/new', to: 'movies#new', as: 'new_movie'
-  post '/movies', to: 'movies#create'
+  post '/movies', to: 'movies#create', as: 'create_movie'
+  get '/movies/:id', to: 'movies#show', as: 'movie'
   get '/movies/:id/edit', to: 'movies#edit', as: 'edit_movie'
   patch '/movies/:id', to: 'movies#update'
   # delete '/movies/:id', to: 'movies#destroy', as: 'delete_movie'

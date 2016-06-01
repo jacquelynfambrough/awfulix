@@ -7,10 +7,8 @@
 <div>
   <h2> Search Results:</h2>
 
-<% @movies.each do |movie| %><br>
-<h3><%= movie.title %></h3><br>
-<%=image_tag movie.poster %><br>
-<%= link_to "Add", new_movie_path, class:'btn btn-primary' %>
+<% @movies.each do |movie|%>
+<%= movie.title %><br>
+<%= image_tag movie.poster %><br>
 <% end %>
-
 </div>
