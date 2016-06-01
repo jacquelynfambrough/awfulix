@@ -26,6 +26,9 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    @movie = Movie.find(params[:id])
+    @review = Review.find(params[:id])
+    render :edit
   end
 
   def update
