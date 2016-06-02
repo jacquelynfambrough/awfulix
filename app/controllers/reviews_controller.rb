@@ -1,9 +1,8 @@
 class ReviewsController < ApplicationController
 
   def index
-    @user = User.find(params[:id])
-    @movie = Movie.find(params[:id])
-    @reviews = @movie.reviews
+    @review_all = Review.all
+
   end
 
   def new

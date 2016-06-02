@@ -1,0 +1,9 @@
+<!-- views/reviews/index.html.erb -->
+
+<h1> All Reviews </h1>
+
+<% @review_all.each do |review| %>
+
+  <h5>"<%=review.subject %>"<br></h5>
+  <i>"<%=review.content %>"</i>
+<% end %>
