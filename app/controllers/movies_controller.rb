@@ -33,12 +33,8 @@ class MoviesController < ApplicationController
     @genre = movie_response["Genre"]
     @reviews = @movie.reviews
     @reviews.each do |review|
-      @user = User.find_by_id(review.user_id)  
+      @user = User.find_by_id(review.user_id)
     end
-      # @user = User.find_by_id(@review.user_id)
-
-
-
     render :show
   end
 
