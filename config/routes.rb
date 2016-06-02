@@ -16,15 +16,15 @@ Rails.application.routes.draw do
   #movie routes
   get '/movies', to: 'movies#index', as: 'movies'
   post '/movies', to: 'movies#create', as: 'create_movie'
-  get '/movies/:id', to: 'movies#show', as: 'movie'
+  get '/movies/:movie_id', to: 'movies#show', as: 'movie'
 
   #movie review routes
   get '/reviews', to: 'reviews#index', as: 'reviews'
   get '/movies/:id', to:'reviews#index', as: 'movie_reviews'
   post '/movies/:id', to: 'reviews#create', as: 'create_review'
   get '/movies/:id/reviews/new', to:'reviews#new', as: 'new_review'
-  get 'movies/:movie_id/reviews/:review_id/edit', to: 'reviews#edit', as: 'edit_review'
+  get 'reviews/:id/edit', to: 'reviews#edit', as: 'edit_review'
   patch '/movies/:movie_id/reviews/:review_id', to: 'reviews#update', as: 'update_review'
-  delete '/movies/:movie_id/reviews/:review_id', to: 'reviews#destroy', as: 'delete_review'
+  delete '/reviews/:id', to: 'reviews#destroy', as: 'delete_review'
 
 end
