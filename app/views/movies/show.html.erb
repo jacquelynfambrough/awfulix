@@ -7,6 +7,17 @@
 <p><%= @plot %></p>
 <br><br>
 
+<!--  raty rate -->
+<div class="row">
+
+    <% if current_user %>
+    Rating: <%= rating_for @movie, "trash" , :disable_after_rate => false , star_off: "imgres.jpg" , :star_on => "trashcan.png", :star => 10 %>
+    <% end %>
+
+</div>
+<!--raty rate  -->
+<hr>
+
 <%= link_to "Add Review", new_review_path(@movie), class:"btn btn-success"%>
 
 <hr>
@@ -23,7 +34,6 @@
           <%= link_to '', delete_review_path(@movie, review), method: 'delete', class: "glyphicon glyphicon-remove"%>
           <%= link_to '', edit_review_path(review), class: "glyphicon glyphicon-pencil" %><br>
           <b>"<%= review.subject %>"</b><br>
-          <b>Rating here (remove label once it's appearing):</b><%= review.rating %><br>
           <b>Review:</b>"<%= review.content %>"<br><br>
             <% end %>
         </div>

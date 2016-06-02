@@ -6,6 +6,7 @@
     <%= form_for @review , url: create_review_path do |f| %>
       <h4>New Review:</h4>
       <hr>
+
       <div>
         <%= f.label :subject %>
         <%= f.text_field :subject, class:'form-control' %>
