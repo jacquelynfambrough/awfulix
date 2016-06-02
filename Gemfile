@@ -33,7 +33,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'httparty', '0.13.7'
 
-gem 'ratyrate'
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'

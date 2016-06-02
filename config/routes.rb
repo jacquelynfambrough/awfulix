@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  post '/rate' => 'rater#create', :as => 'rate'
   root to: 'users#index'
   #user routes
   get '/users/new', to: 'users#new', as: 'new_user'

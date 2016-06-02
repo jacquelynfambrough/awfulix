@@ -7,15 +7,7 @@
 <p><%= @plot %></p>
 <br><br>
 
-<!--  raty rate -->
-<div class="row">
 
-    <% if current_user %>
-    Rating: <%= rating_for @movie, "trash" , :disable_after_rate => false , star_off: "imgres.jpg" , :star_on => "trashcan.png", :star => 10 %>
-    <% end %>
-
-</div>
-<!--raty rate  -->
 <hr>
 
 <%= link_to "Add Review", new_review_path(@movie), class:"btn btn-success"%>
