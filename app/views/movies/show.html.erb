@@ -19,18 +19,12 @@
 
       <% @reviews.each do |review| %>
 
-          <b>User should go here </b>
-          <%= link_to '', delete_review_path(@movie, @review), class: "glyphicon glyphicon-remove"%>
-          <%= link_to '', edit_review_path(@movie, @review), class: "glyphicon glyphicon-pencil" %><br>
+          <%= image_tag @user.image, class: 'img-responsive', size: 100 %><b><%= @user.username %> </b>
+          <%= link_to '', delete_review_path(review), class: "glyphicon glyphicon-remove"%>
+          <%= link_to '', edit_review_path(review), class: "glyphicon glyphicon-pencil" %><br>
           <b>"<%= review.subject %>"</b><br>
           <b>Rating here (remove label once it's appearing):</b><%= review.rating %><br>
           <b>Review:</b>"<%= review.content %>"<br><br>
             <% end %>
-</div>
-
-
-
-
-
-
-  </div>
+        </div>
+      </div>
