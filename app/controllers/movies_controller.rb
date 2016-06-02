@@ -32,7 +32,8 @@ class MoviesController < ApplicationController
     @plot = movie_response["Plot"]
     @genre = movie_response["Genre"]
     @reviews = @movie.reviews
+    @review = Review.find(params[:id])
     render :show
   end
-  
+
 end

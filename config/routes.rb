@@ -23,8 +23,8 @@ Rails.application.routes.draw do
   get '/movies/:id', to:'reviews#index', as: 'movie_reviews'
   post '/movies/:id', to: 'reviews#create', as: 'create_review'
   get '/movies/:id/reviews/new', to:'reviews#new', as: 'new_review'
-  get '/reviews/:id/edit', to: 'reviews#edit', as: 'edit_review'
-  patch '/movies/:id', to: 'reviews#update', as: 'update_review'
-  delete '/movies/:id', to: 'reviews#destroy', as: 'delete_review'
+  get 'movies/:movie_id/reviews/:review_id/edit', to: 'reviews#edit', as: 'edit_review'
+  patch '/movies/:movie_id/reviews/:review_id', to: 'reviews#update', as: 'update_review'
+  delete '/movies/:movie_id/reviews/:review_id', to: 'reviews#destroy', as: 'delete_review'
 
 end
