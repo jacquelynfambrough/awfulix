@@ -20,14 +20,14 @@ class ReviewsController < ApplicationController
     @user.reviews << @review
     @movie.save
     @user.save
-    @review.save
+    # @review.save
 
     redirect_to movie_reviews_path(@movie)
   end
 
   def edit
-    @movie = Movie.find(params[:movie_id])
-    @review = Review.find(params[:review_id])
+    @review = Review.find(params[:id])
+    @movie = Movie.find_by_id(@review.movie_id)
     render :edit
   end
 
@@ -35,14 +35,14 @@ class ReviewsController < ApplicationController
     @movie = Movie.find(params[:movie_id])
     @review = Review.find(params[:review_id])
     @review.update_attributes(review_params)
-    @review.save
+
 
     redirect_to movie_reviews_path(@movie)
   end
 
   def destroy
-    @movies = Movie.find(params[:movie_id])
-    @review = Review.find(params[:review_id])
+    @movie = Movie.find(params[:id])
+    @review = Review.find(params[:id])
     @review.destroy
 
     redirect_to movie_reviews_path(@movie)
