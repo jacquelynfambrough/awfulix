@@ -22,7 +22,7 @@
 
       <% @reviews.each do |review| %>
 
-          <%= image_tag @user.image, class: 'img-responsive', size:"40x20" %><b><%= @user.username %> </b>
+          <%= image_tag @user.image, class: 'img-responsive', size:"40x20" %><b><%= link_to @user.username, user_path(@user) %> </b>
           <%= link_to '', delete_review_path(@movie, review), method: 'delete', class: "glyphicon glyphicon-remove"%>
           <%= link_to '', edit_review_path(review), class: "glyphicon glyphicon-pencil" %><br>
           <b>"<%= review.subject %>"</b><br>
