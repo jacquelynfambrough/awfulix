@@ -22,11 +22,19 @@
 
       <% @reviews.each do |review| %>
 
-          <%= image_tag @user.image, class: 'img-responsive', size:"40x20" %><b><%= link_to @user.username, user_path(@user) %> </b>
+    
+
+
+      <div class="media">
+        <div class="media-left">
+          <%= image_tag @user.image, class: 'media-object' %>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading"><%= link_to @user.username, user_path(@user) %>: "<%= review.subject %>"</h4>
           <%= link_to '', delete_review_path(@movie, review), method: 'delete', class: "glyphicon glyphicon-remove"%>
           <%= link_to '', edit_review_path(review), class: "glyphicon glyphicon-pencil" %><br>
-          <b>"<%= review.subject %>"</b><br>
-          <b>Review:</b>"<%= review.content %>"<br><br>
-            <% end %>
+          <b> Rating: </b> <%=review.rating%><br>
+          <p><em><%= review.content %></em></p>
         </div>
       </div>
+      <% end %>

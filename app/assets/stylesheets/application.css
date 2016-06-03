@@ -13,5 +13,28 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets"
-@import "bootstrap"
+
+
+
+.btn-secondary-outline {
+  color: black;
+	border-color: black;
+  background-color: transparent
+}
+
+a {
+  color:black
+}
+
+.pull-xs-right {
+  padding-top: 8px
+}
+
+navbar-light {
+  position: fixed;
+  width: 100%
+}
+
+body {
+  padding-top: 70px;
+}
