@@ -1,32 +1,32 @@
-<div class= "container">
-<h1><%= @movie.title %></h1>
-
-<p><%= image_tag @movie.poster%></p>
-<p><b>Released:</b><%= @movie.year%></p>
-<p><b>Genre:</b><%= @genre %></p>
-<p><%= @plot %></p>
-<br><br>
-
-
-<hr>
-
-<%= link_to "Add Review", new_review_path(@movie), class:"btn btn-success"%>
-
-<hr>
-
-
-
-<div class= "col-md-12">
-
-    <h2> Reviews: </h2><br>
-
-      <% @reviews.each do |review| %>
-
-          <%= image_tag @user.image, class: 'img-responsive', size:"40x20" %><b><%= link_to @user.username, user_path(@user) %> </b>
-          <%= link_to '', delete_review_path(@movie, review), method: 'delete', class: "glyphicon glyphicon-remove"%>
-          <%= link_to '', edit_review_path(review), class: "glyphicon glyphicon-pencil" %><br>
-          <b>"<%= review.subject %>"</b><br>
-          <b>Review:</b>"<%= review.content %>"<br><br>
-            <% end %>
+<html>
+<body>
+    <div class="container">
+        <h1><%= @movie.title %></h1>
+        <p><%= image_tag @movie.poster%></p>
+        <p><b>Released:</b><%= @movie.year%></p>
+        <p><b>Genre:</b><%= @genre %></p>
+        <p><%= @plot %></p><br>
+        <br>
+        <hr>
+        <%= link_to "Add Review", new_review_path(@movie), class:"btn btn-success"%>
+        <hr>
+        <div class="col-md-12">
+            <h2>Reviews:</h2><br>
+            <%@reviews.each do |review| %>
+            <div class="media">
+                <div class="media-left">
+                    <%= image_tag @user.image, class: 'media-object', height: 50 %>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                    <%= link_to @user.username, user_path(@user) %>:
+                    "<%= review.subject %>"</h4><span><%= link_to '', delete_review_path(@movie, review), method: 'delete', class: "glyphicon glyphicon-remove"%></span>
+                    <span><%= link_to '', edit_review_path(review), class: "glyphicon glyphicon-pencil" %></span>
+                    <b>Rating:</b> <%=review.rating%><br>
+                    <p><em><%= review.content %></em></p>
+                </div>
+            </div><%end%>
         </div>
-      </div>
+    </div>
+</body>
+</html>

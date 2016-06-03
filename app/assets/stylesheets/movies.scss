@@ -1,3 +1,28 @@
 // Place all the styles related to the movies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.bg {
+  background: url('/assets/moviefrontblack.jpg');
+  background-size: 10%;
+  background-position: center;
+  width: 100%;
+  height: 220px; /*same height as jumbotron */
+  z-index: -1;
+
+}
+
+.jumbotron-fluid {
+  margin-bottom: 0px;
+  height: 200px;
+  color: white;
+  font-family: 'Press Start 2P', courier;
+  font-weight: bolder;
+  background:transparent;
+  text-align: center;
+
+}
+
+.glyphicon {
+  float:right;
+}
