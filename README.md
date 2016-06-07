@@ -11,7 +11,8 @@ heroku link: https://awfulix.herokuapp.com/
 *better errors gem
 *HTTParty gem
 
-##Installation of steps for the app itself and any dependencies: there are a few gems that are being used in this app, which i have inserted into the Gemfile, so if you fork and clone this to run the app locally from your computer, just run bundle install.
+##Installation of steps##
+there are a few gems that are being used in this app, which i have inserted into the Gemfile, so if you fork and clone this to run the app locally from your computer, just run bundle install.
 
 ##You can find my  user stories, wireframes, and ERD on my Trello board: https://trello.com/b/uD6wByXp/project-3-awfulix
 
