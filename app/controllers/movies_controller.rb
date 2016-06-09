@@ -35,6 +35,10 @@ class MoviesController < ApplicationController
     @reviews.each do |review|
       @user = User.find_by_id(review.user_id)
     end
+    @rating = Rating.where(movie_id: @movie.id, user_id: current_user.id).first
+    unless @rating
+      @rating = Rating.create(movie_id: @movie.id, user_id: current_user.id, score: 0)
+    end
     render :show
   end
 
