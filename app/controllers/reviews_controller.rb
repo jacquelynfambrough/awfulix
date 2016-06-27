@@ -8,15 +8,21 @@ class ReviewsController < ApplicationController
   def new
     @movie = Movie.find(params[:id])
     @review = Review.new
+    @rating = Rating.create(movie_id: @movie.id, user_id: current_user.id, score: 0)
+
     render :new
   end
 
   def create
     @review = Review.new(review_params)
+    @rating = Rating.find(params[:id])
+    @rating.update_attributes(score: params[:score])
     @user = current_user
     @movie = Movie.find(params[:id])
     @movie.reviews << @review
     @user.reviews << @review
+    @movie.ratings << @rating
+    @user.ratings << @rating
     @movie.save
     @user.save
     # @review.save

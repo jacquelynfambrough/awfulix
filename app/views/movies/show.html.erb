@@ -7,12 +7,33 @@
         <p><b>Genre:</b><%= @genre %></p>
         <p><%= @plot %></p><br>
         <br>
+        <!--avg rating -->
+        <p>Average rating</p>
+        <div id="star">
+          <script>
+          $('#star').raty({
+            readOnly: true,
+            score: <%= @movie.average_rating %>,
+            path: '/assets'
+          });
+          </script>
+        </div>
         <hr>
-        <%= link_to "Add Review", new_review_path(@movie), class:"btn btn-success"%>
+        <!--end avg rating  -->
+        <% if @user == current_user%>
+          <%= link_to "Add Review", new_review_path(@movie), class:"btn btn-success"%>
+        <%end%>
         <hr>
         <div class="col-md-12">
             <h2>Reviews:</h2><br>
             <%@reviews.each do |review| %>
+            <div id="show_star">
+              <script>
+                $('#user_star').raty({
+                  score: <%= @rating.score %>,
+                });
+              </script>
+            </div>
             <div class="media">
                 <div class="media-left">
                     <%= image_tag @user.image, class: 'media-object', height: 50 %>
