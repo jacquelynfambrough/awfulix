@@ -20,7 +20,7 @@
         </div>
         <hr>
         <!--end avg rating  -->
-        <% if @user == current_user%>
+        <% if current_user%>
           <%= link_to "Add Review", new_review_path(@movie), class:"btn btn-success"%>
         <%end%>
         <hr>

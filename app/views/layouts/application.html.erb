@@ -9,16 +9,14 @@
     'stylesheet' type='text/css'><!-- new nav -->
     <nav class="navbar navbar-light navbar-fixed-top" style=
     "background-color: #92A06A;">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a class="navbar-brand" href="/"><b>Awfulix</b></a>
-                    </li>
-                    <li>
-                    <%=link_to "Movies", movies_path %></li><%if current_user %>
-                    <li>
-                    <%=link_to "Profile", user_path(current_user) %></li><%end %>
+                    <li><a class="navbar-brand" href="/"><b>  Awfulix</b></a></li>
+                    <li><%=link_to "Movies", movies_path %></li>
+                    <%if current_user %>
+                      <li><%=link_to "Profile", user_path(current_user) %></li>
+                    <%end %>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <%if current_user %>
@@ -28,15 +26,18 @@
                       <li><%=link_to "Sign Up", new_user_path%></li>
                     <%end%>
                 </ul>
-                <form class="form-inline pull-xs-right">
-                    <%= form_tag movies_path, {method: 'get'} do %>
-                    <%= text_field_tag :search, params[:search], class:'form-control', placeholder:"Search movies"%>
-                    <%= submit_tag "Search", name: nil, class: "btn btn-secondary-outline" %>
-                  <% end %>
-                </form>
             </div>
         </div>
     </nav><!-- new nav -->
+    <div class = "container">
+      <% flash.each do |type, message| %>
+        <div class="alert <%= alert_class_for(type) %> alert-dismissible fade in">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <%= message %>
+        </div>
+      <% end %>
+    </div>
+
     <%= yield %>
 </body>
 </html>

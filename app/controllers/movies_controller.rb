@@ -13,6 +13,8 @@ class MoviesController < ApplicationController
               new_movie.title = movie["Title"]
               if movie["Poster"] != nil
                 new_movie.poster = movie["Poster"]
+              else
+                new_movie.poster = "../app/assets/images/not-found.jpg"
               end
               new_movie.year = movie["Year"]
             end
@@ -35,9 +37,11 @@ class MoviesController < ApplicationController
     @reviews.each do |review|
     @user = User.find_by_id(review.user_id)
   end
-    @rating = Rating.where(movie_id: @movie.id, user_id: current_user.id).first
-    unless @rating
+    if @rating
+      @rating = Rating.where(movie_id: @movie.id, user_id: current_user.id).first
+    else
       @rating = Rating.create(movie_id: @movie.id, user_id: current_user.id, score: 0)
+      @movie.rating << @rating
     end
     render :show
   end
