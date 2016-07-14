@@ -41,7 +41,6 @@ class MoviesController < ApplicationController
       @rating = Rating.where(movie_id: @movie.id, user_id: current_user.id).first
     else
       @rating = Rating.create(movie_id: @movie.id, user_id: current_user.id, score: 0)
-      @movie.rating << @rating
     end
     render :show
   end

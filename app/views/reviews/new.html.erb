@@ -7,8 +7,13 @@
       <h4>New Review:</h4>
       <hr>
 
+      <div>
+        <%= f.label :subject, "Subject:" %>
+        <%= f.text_field :subject, class:'form-control' %>
+      </div><br>
+
       <!--user rating  -->
-      <p>Rating: </p>
+      <b>Rating:</b>
       <div id="user_star">
         <script>
           $('#user_star').raty({
@@ -25,18 +30,9 @@
         </script>
       </div>
       <!--end user rating  -->
-      <div>
-        <%= f.label :subject %>
-        <%= f.text_field :subject, class:'form-control' %>
-      </div><br>
 
       <div>
-        <%= f.label :rating %>
-        <%= f.number_field :rating, class:'form-control' %>
-      </div><br>
-
-      <div>
-        <%= f.label :content, "Review" %>
+        <%= f.label :content, "Review:" %>
         <%= f.text_area :content, class:'form-control' %>
       </div><br>
 
