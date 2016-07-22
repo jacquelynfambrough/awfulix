@@ -14,24 +14,30 @@
   </div>
 </div>
 <div class= "container-fluid">
-  <form class="form-inline search-bar">
-      <%= form_tag movies_path, {method: 'get'} do %>
-      <%= text_field_tag :search, params[:search], class:'form-control', placeholder:"Search movies"%>
-      <%= submit_tag "Search", name: nil, class: "btn btn-secondary-outline" %>
-    <% end %>
-  </form>
+  <div class = "row">
+    <form class="form-inline search-bar">
+        <%= form_tag movies_path, {method: 'get'} do %>
+        <%= text_field_tag :search, params[:search], class:'form-control', placeholder:"Search movies"%>
+        <%= submit_tag "Search", name: nil, class: "btn btn-secondary-outline" %>
+      <% end %>
+    </form>
+  </div>
 </div>
-<div class= "container results">
-    <div class= "row">
-      <div class= "col-md-3 col-md-offset-1 ">
+<div class= "container-fluid results">
+    <div class= "row center-block">
+      <div class= "col-md-10 col-md-offset-1">
         <h2> Search Results:</h2>
         <% @movies.each do |movie|%>
-        <ul>
+        <ul class="list">
           <li>
-            <div class="card">
-              <%= image_tag movie.poster, class: 'card-img-top', alt: 'Movie Poster not available' %>
+            <div class="card img-responsive">
               <div class="card-block">
-                <h4 class="card-title"><%= movie.title %></h4>
+                <% if movie.poster === "N/A" %>
+                  <img src = "http://www.interlog.com/~tfs/images/posters/TFSMoviePosterUnavailable.jpg" class= "img-responsive">
+                <% else %>
+                  <%= image_tag movie.poster, class:'img-responsive poster' %>
+                <% end %>
+                  <h5 class="card-title"><%= movie.title %></h5>
                 <%= link_to "View", movie_path(movie), class: "btn btn-warning"%>
               </div>
             </div>

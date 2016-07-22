@@ -30,10 +30,31 @@
 .search-bar {
   margin-top: 10px;
   text-align: right;
+}
+
+.card {
+  width: 200px;
+  height: 400px;
+}
+
+.card-block {
+  margin-left:30px;
+  margin-bottom:40px;
 
 }
 
-ul li {
-  display: inline;
+.img-responsive {
+  height: 300px;
+  width: 200px;
+}
 
+.card-title {
+  height: 30px;
+}
+
+
+.list {
+  display: inline-table;
+  text-align: center;
+  list-style-type: none;
 }

@@ -11,11 +11,7 @@ class MoviesController < ApplicationController
           search.each do |movie|
               mov = Movie.find_or_create_by(imdbid: movie['imdbID']) do |new_movie|
               new_movie.title = movie["Title"]
-              if movie["Poster"] != nil
-                new_movie.poster = movie["Poster"]
-              else
-                new_movie.poster = "../app/assets/images/not-found.jpg"
-              end
+              new_movie.poster = movie["Poster"]
               new_movie.year = movie["Year"]
             end
             @movies << mov
