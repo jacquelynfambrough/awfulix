@@ -28,8 +28,10 @@
 }
 
 .search-bar {
-  margin-top: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   text-align: right;
+
 }
 
 .card {
@@ -57,4 +59,9 @@
   display: inline-table;
   text-align: center;
   list-style-type: none;
+}
+
+.panel {
+  padding-left: -100px;
+  padding-right: -100px;
 }

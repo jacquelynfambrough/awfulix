@@ -1,12 +1,11 @@
 <div class="container">
-<div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <h1><%= @user.username %></h1>
-    <hr>
-    <p><%= image_tag @user.image, class: "img-responsive"%></p>
-    <p><b>Email: </b><%= @user.email %></p>
-    <%= button_to 'Delete Account', delete_user_path(@user), method: 'delete', class: 'btn btn-danger', data: {confirm: "are you sure? This action cannot be undone."} %>
-    <%= button_to 'Edit Account', edit_user_path(@user), method: 'get', class: 'btn btn-warning' %>
+    <div class="panel panel-warning">
+      <div class = "panel panel-heading"> <h2> <%= @user.username %> </h2></div>
+        <p><%= image_tag @user.image, class: "img-responsive center-block"%></p>
+        <p><b>Email: </b><%= @user.email %></p>
+        <%= button_to 'Edit Account', edit_user_path(@user), method: 'get', class: 'btn btn-warning' %>
+      </div>
+    </div>
   </div>
-</div>
 </div>
