@@ -34,27 +34,9 @@
 
 }
 
-.card {
-  width: 200px;
-  height: 600px;
-}
-
-.card-block {
-  margin-left:30px;
-  margin-bottom:40px;
-
-}
-
-.posters {
-  height: 300px;
-  width: 200px;
-  margin-top: 200px;
-}
-
 .card-title {
-  height: 50px;
+  text-align: center;
 }
-
 
 .list {
   display: inline-table;
@@ -65,8 +47,4 @@
 .panel {
   padding-left: -100px;
   padding-right: -100px;
-}
-
-.btn {
-  margin-bottom: 50px;
 }

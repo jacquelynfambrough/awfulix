@@ -23,7 +23,7 @@
     </form>
   </div>
 </div>
-<div class= "container-fluid results">
+
   <div class="panel panel-default">
     <div class="panel-body">
         <div class= "row center-block">
@@ -31,16 +31,15 @@
             <% @movies.each do |movie|%>
             <ul class="list">
               <li>
-                <div class="card img-responsive posters">
+                <div class="card">
                   <div class="card-block">
-                    <% if movie.poster === "N/A" %>
-                      <img src = "http://www.interlog.com/~tfs/images/posters/TFSMoviePosterUnavailable.jpg" class= "img-responsive">
-                    <% else %>
-                      <%= image_tag movie.poster, class:'img-responsive poster' %>
-                    <% end %>
-                      <h5 class="card-title"><%= movie.title %></h5>
-                    <%= link_to "View", movie_path(movie), class: "btn btn-warning"%>
+                    <h4 class="card-title"><%= movie.title %></h4>
                   </div>
+                  <% if movie.poster === "N/A" %>
+                    <%= link_to image_tag('http://www.interlog.com/~tfs/images/posters/TFSMoviePosterUnavailable.jpg', height: '200px', width: '130px'), movie_path(movie), class: 'img-responsive poster center-block' %>
+                  <% else %>
+                    <%= link_to image_tag(movie.poster, height: '200px', width: '130px'), movie_path(movie), class: 'img-responsive poster center-block' %>
+                  <% end %>
                 </div>
               </li>
             </ul>
@@ -48,7 +47,6 @@
             <% end %>
             <br>
             <br>
-          </div>
         </div>
       </div>
     </div>
