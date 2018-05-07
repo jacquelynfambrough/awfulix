@@ -2,6 +2,48 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.display-3 {
+  text-align:center;
+}
+
+.card {
+  margin-bottom:100px;
+}
+
+.movie-title {
+  font-size: 15px;
+  text-align:center;
+  height: 50px;
+  vertical-align: bottom;
+}
+
+.card-img-top {
+  width: 160px;
+  height:240px;
+}
+
+.card-text {
+  text-align: center;
+}
+
+.card-text-top {
+  text-align:center;
+  padding-top: 10px;
+}
+
+.maturity-rating {
+  color:lightgrey;
+  font-size: 12px;
+  line-height: 1px;
+  text-align: center;
+}
+
+.see-more {
+  color:green;
+  font-style: italic;
+}
+
 .bg {
   background: url('/assets/moviefrontblack.jpg');
   background-size: 10%;
@@ -34,15 +76,6 @@
 
 }
 
-.card-title {
-  text-align: center;
-}
-
-.list {
-  display: inline-table;
-  text-align: center;
-  list-style-type: none;
-}
 
 .panel {
   padding-left: -100px;

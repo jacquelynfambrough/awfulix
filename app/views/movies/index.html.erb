@@ -1,12 +1,19 @@
 
 <link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+
+
+<!-- TEST -->
+<!-- TEST -->
+
+
 <div class= "container-fluid">
   <div class= "row">
     <div class= "col-md-12">
       <div class = "bg">
         <div class= "container">
           <div class="jumbotron jumbotron-fluid">
-            <h2 class="display-3">Movies <br> Index</h2>
+            <h2 class="align-middle">Movies</h2>
+            <h2 class="align-middle">Index</h2>
           </div>
         </div>
       </div>
@@ -26,23 +33,26 @@
 
   <div class="panel panel-default">
     <div class="panel-body">
-        <div class= "row center-block">
-          <div class= "col-md-10 col-md-offset-1">
+        <div class= "row justify-content-center">
+          <div class= "col-12">
             <% @movies.each do |movie|%>
-            <ul class="list">
-              <li>
-                <div class="card">
-                  <div class="card-block">
-                    <h4 class="card-title"><%= movie.title %></h4>
+
+              <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 mb-3">
+                  <div class="card center-block">
+                    <div class = "card-body">
+                      <p class="movie-title" ><%= movie.title %></p>
+                        <% if movie.poster === "N/A" %>
+                          <p><%= link_to image_tag('http://www.interlog.com/~tfs/images/posters/TFSMoviePosterUnavailable.jpg', class: 'card-img-top center-block mb-1'), movie_path(movie) %></p>
+                        <% else %>
+                          <p><%= link_to image_tag(movie.poster, class: 'card-img-top center-block mb-1'), movie_path(movie) %></p>
+                        <% end %>
+                          <p class="card-text-top">*** TRASH CAN RATING***</p>
+                          <p class ="maturity-rating">Rated PG-13</p>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content <%= link_to "(more)...", '#', :class => "see-more" %></p>
+
+                        </div>
                   </div>
-                  <% if movie.poster === "N/A" %>
-                    <%= link_to image_tag('http://www.interlog.com/~tfs/images/posters/TFSMoviePosterUnavailable.jpg', height: '200px', width: '130px'), movie_path(movie), class: 'img-responsive poster center-block' %>
-                  <% else %>
-                    <%= link_to image_tag(movie.poster, height: '200px', width: '130px'), movie_path(movie), class: 'img-responsive poster center-block' %>
-                  <% end %>
-                </div>
-              </li>
-            </ul>
+              </div>
 
             <% end %>
             <br>
