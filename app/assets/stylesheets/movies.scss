@@ -12,10 +12,15 @@
 }
 
 .movie-title {
-  font-size: 15px;
+  font-size: 18px;
   text-align:center;
-  height: 50px;
-  vertical-align: bottom;
+  height: 60px;
+  font-weight: bold;
+
+}
+
+.movie-title-text {
+  vertical-align:text-bottom;
 }
 
 .card-img-top {
@@ -25,6 +30,7 @@
 
 .card-text {
   text-align: center;
+  width: 160px;
 }
 
 .card-text-top {

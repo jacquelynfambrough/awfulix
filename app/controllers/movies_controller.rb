@@ -13,6 +13,8 @@ class MoviesController < ApplicationController
               new_movie.title = movie["Title"]
               new_movie.poster = movie["Poster"]
               new_movie.year = movie["Year"]
+              new_movie.rated = movie["Rated"]
+              new_movie.plot = movie["Plot"]
             end
             @movies << mov
           end
@@ -27,8 +29,13 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.find(params[:movie_id])
     movie_response = HTTParty.get('https://www.omdbapi.com/?t=' + @movie.title + '&y=&plot=full&r=json')
-    @plot = movie_response["Plot"]
+    movie_response_short_plot = HTTParty.get('https://www.omdbapi.com/?t=' + @movie.title + '&y=&r=json')
+    @plotShort = movie_response_short_plot["Plot"]
+    @plotFull = movie_response
     @genre = movie_response["Genre"]
+    @maturityRating = movie_response["Rated"]
+    @rottenRating = movie_response["Plot"]
+    @imdbRating = movie_response["Plot"]
     @reviews = @movie.reviews
     @reviews.each do |review|
     @user = User.find_by_id(review.user_id)
