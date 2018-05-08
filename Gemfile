@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.2.1"
+# use Ruby version 2.2.1
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
@@ -13,6 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -28,7 +31,6 @@ gem 'bootstrap-sass', '3.2.0.2'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'httparty', '0.13.7'
-
 
 
 # Use Unicorn as the app server
