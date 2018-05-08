@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Awfulix</title><%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %><%= javascript_include_tag 'application', 'data-turbolinks-track' => true %><%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Open+Sans:400&subset=latin', media: 'all', 'data-turbolinks-track' => true %><%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=3">
+</head>
+<body style = "background-color: #f5f9ea;">
+    <!-- Google font  -->
+    <link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel=
+    'stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Creepster" rel="stylesheet">
+    <!-- new nav -->
+    <nav class="navbar navbar-light navbar-fixed-top" style=
+    "background-color: #92A06A;">
+        <div class="container">
+            <div class="row">
+                <ul class="nav navbar-nav">
+                    <li><a class="navbar-brand" href="/"><b>  Awfulix</b></a></li>
+                    <li><%=link_to "Movies", movies_path %></li>
+                    <%if current_user %>
+                      <li><%=link_to "Profile", user_path(current_user) %></li>
+                    <%end %>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <%if current_user %>
+                      <li class><%=link_to "Logout", logout_path%></li>
+                    <%else %>
+                      <li><%=link_to "Login", login_path%></li>
+                      <li><%=link_to "Sign Up", new_user_path%></li>
+                    <%end%>
+                </ul>
+            </div>
+        </div>
+    </nav><!-- new nav -->
+    <div class = "container">
+      <% flash.each do |type, message| %>
+        <div class="alert <%= alert_class_for(type) %> alert-dismissible fade in">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <%= message %>
+        </div>
+      <% end %>
+    </div>
+
+    <%= yield %>
+</body>
+</html>

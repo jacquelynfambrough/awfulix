@@ -1,0 +1,59 @@
+<html>
+<body>
+    <div class="container">
+        <h1><%= @movie.title %></h1>
+        <p>
+          <% if @movie.poster === "N/A" %>
+            <img src = "http://www.interlog.com/~tfs/images/posters/TFSMoviePosterUnavailable.jpg" class= "img-responsive">
+          <% else %>
+            <%= image_tag @movie.poster, class:'img-responsive poster' %>
+          <% end %>
+        </p>
+        <p><b>Released:</b><%= @movie.year%></p>
+        <p><b>Genre:</b><%= @genre %></p>
+        <p><%= @plot %></p><br>
+        <br>
+        <!--avg rating -->
+        <p>Average rating</p>
+        <div id="star">
+          <script>
+          $('#star').raty({
+            readOnly: true,
+            score: <%= @movie.average_rating %>,
+            path: '/assets'
+          });
+          </script>
+        </div>
+        <hr>
+        <!--end avg rating  -->
+        <% if current_user%>
+          <%= link_to "Add Review", new_review_path(@movie), class:"btn btn-success"%>
+        <%end%>
+        <hr>
+        <div class="col-md-12">
+            <h2>Reviews:</h2><br>
+            <%@reviews.each do |review| %>
+            <div id="show_star">
+              <script>
+                $('#user_star').raty({
+                  score: <%= @rating.score %>,
+                });
+              </script>
+            </div>
+            <div class="media">
+                <div class="media-left">
+                    <%= image_tag @user.image, class: 'media-object', height: 50 %>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                    <%= link_to @user.username, user_path(@user) %>:
+                    "<%= review.subject %>"</h4><span><%= link_to '', delete_review_path(@movie, review), method: 'delete', class: "glyphicon glyphicon-remove"%></span>
+                    <span><%= link_to '', edit_review_path(review), class: "glyphicon glyphicon-pencil" %></span>
+                    <b>Rating:</b> <%=review.rating%><br>
+                    <p><em><%= review.content %></em></p>
+                </div>
+            </div><%end%>
+        </div>
+    </div>
+</body>
+</html>
