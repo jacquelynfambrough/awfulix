@@ -53,3 +53,6 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
