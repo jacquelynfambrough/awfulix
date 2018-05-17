@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 
-ruby "2.5.1"
-# use Ruby version 2.2.4ru
+ruby "2.3.1"
+
+# (Update) Rails internals: application bootup, plugins, generators, and rake tasks.
+gem 'railties', '~> 5.0', '>= 5.0.0.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2'
@@ -15,6 +17,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+
+
+# Boot large ruby/rails apps faster
+gem 'bootsnap', '~> 1.3'
 
 #By wrapping HTTP requests and responses in the simplest way possible, it unifies
 #and distills the API for web servers, web frameworks, and software in between
@@ -64,6 +70,8 @@ group :development do
   gem "better_errors"
 
   gem "binding_of_caller"
+
+  gem 'listen'
 
 end
 
