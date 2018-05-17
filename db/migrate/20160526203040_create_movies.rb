@@ -1,4 +1,4 @@
-class CreateMovies < ActiveRecord::Migration
+class CreateMovies < ActiveRecord::Migration[5.2]
   def change
     create_table :movies do |t|
       t.string :title
@@ -6,7 +6,7 @@ class CreateMovies < ActiveRecord::Migration
       t.string :genre
       t.string :poster
       t.string :plot
-      
+
 
 
       t.timestamps null: false
