@@ -14,7 +14,8 @@
 
 # I don’t want to show my secrets
 /config/secrets.yml
-
+/config/storage.yml
+/config/cable.yml
 
 # Compiled source #
 ###################
