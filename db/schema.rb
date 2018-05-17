@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,50 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607193157) do
+ActiveRecord::Schema.define(version: 2016_06_07_193157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "movies", force: :cascade do |t|
-    t.string   "title"
-    t.string   "year"
-    t.string   "genre"
-    t.string   "poster"
-    t.string   "plot"
+    t.string "title"
+    t.string "year"
+    t.string "genre"
+    t.string "poster"
+    t.string "plot"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "imdbid"
+    t.string "imdbid"
   end
 
   create_table "ratings", force: :cascade do |t|
-    t.integer  "movie_id"
-    t.integer  "user_id"
-    t.integer  "score",      default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.bigint "movie_id"
+    t.bigint "user_id"
+    t.integer "score", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_ratings_on_movie_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
-  add_index "ratings", ["movie_id"], name: "index_ratings_on_movie_id", using: :btree
-  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id", using: :btree
-
   create_table "reviews", force: :cascade do |t|
-    t.string   "content"
-    t.integer  "rating"
-    t.string   "subject"
-    t.integer  "user_id"
-    t.integer  "movie_id"
+    t.string "content"
+    t.integer "rating"
+    t.string "subject"
+    t.integer "user_id"
+    t.integer "movie_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "password_digest"
-    t.string   "username"
-    t.string   "image"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string "email"
+    t.string "password_digest"
+    t.string "username"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "ratings", "movies"
