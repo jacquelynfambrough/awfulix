@@ -4,6 +4,11 @@ class Movie < ActiveRecord::Base
   has_many :ratings
 
   def average_rating
-    ratings.sum(:score) / ratings.size
+    if ratings.size == 0
+      @divideBy = 1
+    else
+      @divideBy = ratings.size
+    end
+     ratings.sum(:score) / @divideBy
   end
 end
