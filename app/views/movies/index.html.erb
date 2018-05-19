@@ -41,7 +41,7 @@
                   <div class="card center-block">
                     <div class = "card-body">
                     <div class = "movie-title">
-                      <p class="movie-title-text" ><%= movie.id %></p>
+                      <p class="movie-title-text" ><%= movie.title %></p>
                     </div>
                         <% if movie.poster === "N/A" %>
                           <p><%= link_to image_tag('http://www.interlog.com/~tfs/images/posters/TFSMoviePosterUnavailable.jpg', class: 'card-img-top center-block mb-1'), movie_path(movie) %></p>
