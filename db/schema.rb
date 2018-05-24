@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2016_06_07_193157) do
+ActiveRecord::Schema.define(version: 2018_05_24_215345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 2016_06_07_193157) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "imdbid"
+    t.string "maturity_rating"
+    t.string "media_type"
+    t.string "runtime"
+    t.string "director"
+    t.string "actors"
+    t.string "language"
+    t.string "country"
+    t.decimal "imdb_rating"
+    t.decimal "rotten_rating"
+    t.decimal "metacritic_rating"
   end
 
   create_table "ratings", force: :cascade do |t|
