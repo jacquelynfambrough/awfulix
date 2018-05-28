@@ -5,27 +5,28 @@ class MoviesController < ApplicationController
   def index
       if params[:search]
         # search params only pull up these attributes: title, year, imdbid, type & poster
-        response = HTTParty.get('https://www.omdbapi.com/?apikey=' + Rails.application.credentials[:ombd_api_key] + '&s=' + params[:search] + '&r=json')
+        search_response = HTTParty.get('https://www.omdbapi.com/?apikey=' + Rails.application.credentials[:ombd_api_key] + '&s=' + params[:search] + '&r=json')
         # if response is success, insert movies pulled up in search into empty array
-        if response.success?
-          search = response["Search"]
-          @movies = []
-          search.each do |movie|
-              mov = Movie.find_or_create_by(imdbid: movie['imdbID']) do |new_movie|
-              new_movie.title = movie["Title"]
-              new_movie.poster = movie["Poster"]
-              new_movie.year = movie["Year"]
+        if search_response.success?
+          search = search_response["Search"]
+          @movies = [] #empty array to insert search results
+          search.each do |search_result_item|
+              mov = Movie.find_or_create_by(imdbid: search_result_item['imdbID']) do |new_movie| # create list of movies found based off of search parameters
+                new_movie.title = search_result_item["Title"]
+                new_movie.poster = search_result_item["Poster"]
+                new_movie.year = search_result_item["Year"]
+              end # end "new_movie" iteration
+              @movies << mov # push search result into array
+          end #end "search_result_item" iteration
 
-            end
-            @movies << mov
-          end
-        else
+        else # if search_response fails, throw error
           p 'error'
-        end
-      else
+
+        end # end search_response if-case
+      else # if no search params, display all movies in database.
         @movies = Movie.all
-      end
-  end
+      end # end search params if-case
+  end # end 'def index'
 
   def show
     @movie = Movie.find(params[:movie_id])

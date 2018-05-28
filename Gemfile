@@ -37,7 +37,10 @@ gem 'jbuilder', '~> 2.7'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 1.0'
 
-gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+gem 'bootstrap'
+
+gem 'popper_js', '~> 1.12.9'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 
